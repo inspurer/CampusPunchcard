@@ -12,7 +12,7 @@
   <view class="operations">
   <navigator url="../index1/index1">我的发布</navigator>
     <view bindtap="modifyImg">修改头像</view>
-    <view bindtap="modifyNick">修改昵称</view>
+    <view bindtap="modifyNick">班级姓名</view>
 
     <navigator url="../newList/newList" class="unread">
       <view wx-if="{{remindscount>0}}">{{remindscount}}</view>消息

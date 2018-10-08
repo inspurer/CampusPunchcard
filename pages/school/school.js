@@ -122,10 +122,8 @@ Page({
     wx.stopPullDownRefresh();
     var limit = that.data.limit
     console.log("下拉刷新....." + that.data.limit)
-    that.setData({
-      limit: that.data.pageSize,
-
-    })
+    that.setData()
+    this.onLoad()
     that.onShow(1)
   },
   scrollTopFun: function (e) {

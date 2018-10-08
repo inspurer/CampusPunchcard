@@ -232,7 +232,7 @@ Page({
                         isdisabled: false,
                         modifyLoading: false
                       })
-                      common.dataLoading("修改昵称成功", "success");
+                      common.dataLoading("修改班级姓名成功", "success");
 
                     },
                     error: function (error) {

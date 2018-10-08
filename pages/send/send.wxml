@@ -6,10 +6,6 @@
 <!--<view class="index_list">-->
   <navigator url="../listDetail/listDetail?moodId={{item.id}}" hover-class="navigator-hover" wx:for-items="{{moodList}}" wx:key="moodListId">
     <template is="listTemp" data="{{listPic:item.attachment,listTitle:item.title,listContent:item.content}}" />
-    <view class="mylist_footer">
-      <view class="mylist_footer_left">{{item.created_at}}</view>
-      <view class="mail mail_{{item.status}}"></view>
-    </view>
   </navigator>
 </scroll-view>
 <!--</view>-->
