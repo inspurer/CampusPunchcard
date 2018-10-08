@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/loginer/loginer",
+    "pages/school/school",
+    "pages/send/send",
+    "pages/listDetail/listDetail",
+    "pages/mine/mine",
+    "pages/advise/advise",
+    "pages/index1/index1",
+    "pages/write/write",
+    "pages/newList/newList",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FEFEFE",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "校园动态",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#FAFAFA",
+    "borderStyle": "white",
+    "color": "#b2b2b2",
+    "selectedColor": "#1e1e1e",
+    "list": [
+     {
+          "pagePath": "pages/school/school",
+          "selectedIconPath": "static/images/school1.png",
+          "iconPath": "static/images/school.png",
+          "text": "校园动态"
+      },
+      {
+        "pagePath": "pages/send/send",
+        "selectedIconPath": "static/images/send1.png",
+        "iconPath": "static/images/send.png",
+        "text": "发布"
+      },
+   
+      {
+        "pagePath": "pages/mine/mine",
+        "selectedIconPath": "static/images/mine1.png",
+        "iconPath": "static/images/mine.png",
+        "text": "我"
+      }
+    ]
+  }
+}

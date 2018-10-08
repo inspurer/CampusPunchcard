@@ -1,0 +1,32 @@
+<loading hidden="{{isload}}">
+  加载中...
+</loading>
+<import src="../template/list.wxml" />
+
+<view class="index_list">
+  <navigator url="../listDetail/listDetail?moodId={{item.id}}" hover-class="navigator-hover" wx:for-items="{{moodList}}" wx:key="moodListId" wx:if="{{item.id}}">
+    <template is="listHeader" data="{{userPic:item.avatar,userNick:item.username,publishTime:item.created_at}}" />
+    <template is="listTemp" data="{{listPic:item.attachment,listTitle:item.title,listContent:item.content}}" />
+    <view class="list_footer">
+      <view class="agreeNum agree_{{item.is_liked}}">{{item.likes}}</view>
+      <view class="commNum">{{item.comments}}</view>
+    </view>
+  </navigator>
+</view>
+
+
+
+<view class="bord"></view>
+
+
+<view class="returnTop"  wx:if="{{scrollTop.goTop_show}}" catchtap="goTopFun">
+</view>
+
+
+<view class="weui-loadmore" hidden="{{isload}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="weui-loadmore weui-loadmore_line" hidden="{{isEmpty}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+</view>

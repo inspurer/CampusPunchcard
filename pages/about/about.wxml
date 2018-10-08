@@ -1,0 +1,7 @@
+<view class="topBox">
+  <image src="../../static/images/csu.jpg" mode="aspectFill"></image>
+  <text>铁道小e</text>
+</view>
+  <view class="softHtp">
+    supported by inspurer
+  </view>
