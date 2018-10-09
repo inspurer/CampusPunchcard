@@ -9,13 +9,18 @@
     "pages/index1/index1",
     "pages/write/write",
     "pages/newList/newList",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/main/main",
+    "pages/punch/punch",
+    "pages/sport/sport",
+    "pages/walk/walk",
+    "pages/run/run"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#FEFEFE",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "校园动态",
+    "navigationBarTitleText": "铁道小e",
     "enablePullDownRefresh": true
   },
   "tabBar": {
@@ -24,11 +29,11 @@
     "color": "#b2b2b2",
     "selectedColor": "#1e1e1e",
     "list": [
-     {
-          "pagePath": "pages/school/school",
-          "selectedIconPath": "static/images/school1.png",
-          "iconPath": "static/images/school.png",
-          "text": "校园动态"
+      {
+        "pagePath": "pages/school/school",
+        "selectedIconPath": "static/images/school1.png",
+        "iconPath": "static/images/school.png",
+        "text": "校园动态"
       },
       {
         "pagePath": "pages/send/send",
@@ -36,7 +41,6 @@
         "iconPath": "static/images/send.png",
         "text": "发布"
       },
-   
       {
         "pagePath": "pages/mine/mine",
         "selectedIconPath": "static/images/mine1.png",

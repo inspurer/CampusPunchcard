@@ -76,7 +76,7 @@ Page({
           isdisabled:true
         }) 
      wx.getStorage({
-       key: 'my_username',
+       key: 'my_nick',
        success: function(res) {
          var username = res.data
          wx.getStorage({

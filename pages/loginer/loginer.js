@@ -33,8 +33,8 @@ Page({
                 var value = wx.getStorageSync('user_openid')
                 if (value) {
                   console.log("value不为空")
-                  wx.switchTab({
-                    url: '../school/school',
+                  wx.navigateTo({
+                    url: '../main/main',
                   });
                 } else {
                   console.log("value为空")
@@ -58,8 +58,8 @@ Page({
                                     } catch (e) {
                                     }
                                     console.log("登录成功y");
-                                    wx.switchTab({
-                                      url: '../school/school',
+                                    wx.navigateTo({
+                                      url: '../main/main',
                                     });
                                   },
                                   error: function (user, error) {
@@ -83,8 +83,8 @@ Page({
                                             )
 
                                             console.log("注册成功!");
-                                            wx.switchTab({
-                                              url: '../school/school',
+                                            wx.navigateTo({
+                                              url: '../main/main',
                                             });
                                           } catch (e) {
                                           }

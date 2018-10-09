@@ -1,1 +1,6 @@
 /* pages/loginer/loginer.wxss */
+button{
+  margin-top: 300px;
+  width: 40%;
+  background-color: rgb(9, 233, 28);
+}

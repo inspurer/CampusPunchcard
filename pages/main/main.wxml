@@ -1,0 +1,4 @@
+<!--pages/mainui/main.wxml-->
+<button class='btn_school' bindtap='school' >校园空间</button>
+<button class='btn_sport' bindtap='sport' >开始运动</button>
+<button class='btn_punch' bindtap='punch' >开始打卡</button>

@@ -1,0 +1,19 @@
+/* pages/mainui/main.wxss */
+.btn_school{
+  width: 80%;
+  margin-top: 150px;
+  background-color: rgb(9, 233, 28);
+  }
+
+  .btn_sport{
+  width: 80%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: rgb(9, 233, 28);
+  }
+
+  .btn_punch{
+  width: 80%;
+  margin-bottom: 150px;
+  background-color: rgb(9, 233, 28);
+  }

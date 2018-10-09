@@ -1,0 +1,31 @@
+
+.header{
+    margin-top: 20;
+    line-height: 1;
+}
+
+
+
+.bigTitle{
+    font-size: 52rpx;
+    padding-left:  30rpx;
+    padding-right: 30rpx;
+    padding-top: 60rpx;
+    position: center;
+}
+
+
+.widgets__item{
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    height: 60rpx;
+    margin-left: 50rpx;
+    margin-right: 50rpx;
+    text-align: center;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    color: rgb(9,233,28);
+    font-size: 40rpx;
+    border-radius: 4rpx;
+    cursor: pointer;
+}
