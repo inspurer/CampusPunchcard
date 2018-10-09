@@ -4,8 +4,9 @@
     <button bindtap="openLocation">打开位置</button>
     <button bindtap="starRun">开始跑步</button>
     <button bindtap="stopRun">暂停跑步</button>
-    <text>\n里程：{{meters}}km</text>
-    <text>\n用时：{{time}}</text>
+    <button bindtap="upload">数据上传</button>
+    <text class="far">里程：{{meters}}km</text>
+    <text class="time">用时：{{time}}</text>
 </view>
 
 <view class="mainView">

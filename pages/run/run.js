@@ -5,6 +5,7 @@ var countTooGetLocation = 0;
 var total_micro_second = 0;
 var starRun = 0;
 var totalSecond  = 0;
+var Bmob = require('../../utils/bmob.js');
 var oriMeters = 0.0;
 /* 毫秒级倒计时 */
 function count_down(that) {
@@ -89,6 +90,12 @@ Page({
     console.log("onLoad")
     count_down(this);
   },
+  onShow:function(){
+    wx.showToast({
+      title: '请及时上传数据',
+      icon: 'success'
+    })
+  },
   //****************************
   openLocation:function (){
     wx.getLocation({
@@ -121,6 +128,63 @@ Page({
     count_down(this);
   },
 
+  upload:function(){
+    if(oriMeters>0.1){
+      wx.getStorage({
+        key: 'user_id',
+        success: function (res) {
+          var user_id = new Bmob.User();
+          user_id.id = res.data;
+          wx.getStorage({
+            key: 'my_nick',
+            success: function (ress) {
+              var mydate = new Date();
+              var year = mydate.getFullYear();
+              var month = mydate.getMonth() + 1;
+              var day = mydate.getDate();
+              var hour = mydate.getHours(); //获取当前小时数(0-23)
+              var minute = mydate.getMinutes(); //获取当前分钟数(0-59)
+              var second = mydate.getSeconds(); //获取当前秒数(0-59)
+              var datetime = year + "年" + month + "月" + day + "日" + hour + "时" + minute + "分" + second + "秒";
+              var Run = Bmob.Object.extend("run");
+              var run = new Run();
+              var me = ress.data;
+
+              // 查询所有数据
+
+              run.set('nickname', me);
+              run.set('user_id', user_id);
+              run.set('datetime', datetime);
+              run.set('far', oriMeters);
+              console.log(me, user_id);
+              run.save(null, {
+                success: function (result) {
+                  console.log('success');
+                  oriMeters = 0;
+                  wx.showToast({
+                    title: '上传成功',
+                    icon: 'success'
+                  })
+                },
+                error: function (result, error) {
+                  console.log(result, error, "failure")
+                }
+              })
+
+            }
+          })
+
+        },
+      })
+    }
+    else{
+      wx.showToast({
+        title: '>0.1km才能上传数据',
+        icon: 'laoding',
+      })
+    }
+  },
+
 
 //****************************
   updateTime:function (time) {
@@ -149,7 +213,7 @@ Page({
         var newCover = {
             latitude: res.latitude,
             longitude: res.longitude,
-            iconPath: '/resources/redPoint.png',
+            iconPath: '../../static/images/redPoint.png',
           };
         var oriCovers = that.data.covers;
         

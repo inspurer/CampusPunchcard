@@ -1,125 +1,16 @@
 page {
-  background-color: rgb(9, 233, 28);
+  background-color: rgb(229, 236, 240);
 }
  
-.t_red {
-  color: red;
-}
- 
-.t_blue {
-  color: royalblue;
-}
- 
-.calendar {
-  width: 500rpx;
-  margin: 200rpx 125rpx;
-  /* height: 600rpx; *//* background-color: #ffffff; */
-  border-radius: 4rpx;
-}
- 
-.time {
-  padding: 16rpx 20rpx;
-  background-color: wheat;
-  display: flex;
-}
- 
-.time view {
-  flex: 1;
-  font-size: 30rpx;
-}
- 
-.time view text {
-  font-size: 38rpx;
-}
- 
-.weekName {
-  background-color: #54ff9c;
-  width: 100%;
-  display: flex;
-  padding: 30rpx 0;
-  font-size: 40rpx;
-  color: #fff;
-}
- 
-.weekName view {
-  flex: 1;
-  text-align: center;
-}
- 
-.week {
-  width: 100%;
-}
- 
-.week view {
-  width: 14.2%;
-  height: 50rpx;
-  line-height: 50rpx;
-  display: inline-block;
-  margin: 10rpx 0;
-  text-align: center;
-  font-size: 30rpx;
-  color: #747474;
-}
- 
-.week view text {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-}
- 
-.calendarSign {
-  margin-top: -75rpx;
-  text-align: center;
-}
- 
-.btnimg {
-  width: 150rpx;
-  height: 150rpx;
-  border-radius: 50%;
-}
- 
-.bcfff {
-  background-color: white;
-  padding-bottom: 100rpx;
-}
- 
-.zhegai {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.4;
-}
- 
-.successqd {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 550rpx;
-  margin-left: -275rpx;
-  margin-top: -200rpx;
-  background-color:white;
-   border-radius: 6rpx;
-   border: 2rpx solid #54ff9c;
-   text-align: center;
-}
-.qdtitle{
-  font-size: 32rpx;
-font-weight: bold;
-color: #232323;
-padding: 20rpx;
-}
-.qdcontent{
-font-size: 30rpx;
-color: #232323;
-padding: 20rpx 10rpx;
-}
-.queding{
-font-size: 30rpx;
-color: #232323;
-border-top: 1rpx solid #cccccc;
-padding: 20rpx;
+.circle{
+    margin-top: 50%;
+    padding-top: 35px;
+    width: 150px;
+    height: 150px;
+    font-size: 30px;
+    text-align: center;
+    border: 0 solid #ffffff;
+    border-radius: 500px;
+    box-shadow: 4px 1px 1px #cccccc;
+
 }

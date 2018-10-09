@@ -231,6 +231,20 @@ checkbox, radio{
     padding-left: 0;
     padding-right: 0;
 }
-.section__ctn{
-
+button{
+  margin: 5px;
+  color: rgb(9,233,28);
+  text-align: center;
+}
+.far{
+  color: rgb(9,233,28);
+  margin-top: 5px;
+  font-size: 25px;
+  margin-left: 15px;
+}
+.time{
+  color: rgb(9,233,28);
+  margin-top: 5px;
+  font-size: 25px;
+  margin-left: 20px;
 }

@@ -22,7 +22,6 @@
     margin-left: 50rpx;
     margin-right: 50rpx;
     text-align: center;
-    background-color: #FFFFFF;
     overflow: hidden;
     color: rgb(9,233,28);
     font-size: 40rpx;
