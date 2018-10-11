@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/loginer/loginer",
+    "pages/punch/punch",
     "pages/school/school",
     "pages/send/send",
     "pages/listDetail/listDetail",
@@ -11,7 +12,6 @@
     "pages/newList/newList",
     "pages/about/about",
     "pages/main/main",
-    "pages/punch/punch",
     "pages/sport/sport",
     "pages/walk/walk",
     "pages/run/run"
@@ -35,12 +35,24 @@
         "iconPath": "static/images/school.png",
         "text": "校园动态"
       },
+        {
+          "pagePath": "pages/punch/punch",
+          "selectedIconPath": "static/images/punch1.png",
+          "iconPath": "static/images/punch.png",
+          "text": "早起打卡"
+        },
       {
         "pagePath": "pages/send/send",
         "selectedIconPath": "static/images/send1.png",
         "iconPath": "static/images/send.png",
-        "text": "发布"
+        "text": "发布动态"
       },
+        {
+          "pagePath": "pages/sport/sport",
+          "selectedIconPath": "static/images/sport1.png",
+          "iconPath": "static/images/sport.png",
+          "text": "开始运动"
+        },
       {
         "pagePath": "pages/mine/mine",
         "selectedIconPath": "static/images/mine1.png",

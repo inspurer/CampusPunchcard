@@ -9,14 +9,13 @@ page {
 page .mine_box {
   height: 100%;
   width: 100%;
-  background: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/12/22/b6476d9540a5b4e1807e2f23434bd4e6.png) no-repeat center center;
   background-size: 100% auto;
   padding-top: 40rpx;
   box-sizing: border-box;
 }
 
 .user_show {
-  padding-top: 86rpx;
+  padding-top: 35rpx;
 }
 
 .user_show image {
@@ -130,7 +129,7 @@ page .mine_box {
   position: absolute;
   padding: 10;
 
-  background: #be925c;
+  background: rgb(9,233,28);
   border-radius: 100%;
   line-height: 30px;
   text-align: center;

@@ -14,7 +14,7 @@
     
     <input placeholder="输入标题（选）"  class="add_title" value="" bindinput="setTitle" name="title"/>
     <view  class="addConent">
-        <textarea  placeholder="记下这一刻的心情" maxlength="1000"  value="" name="content"/>
+        <textarea  placeholder="分享运动快乐" maxlength="1000"  value="" name="content"/>
     </view>
  
     <button loading="{{isLoading}}" hover-start-time="200" disabled="{{isdisabled}}" formType="submit">发布</button>

@@ -104,6 +104,86 @@ Page({
     }
 
   },
+  modifySex: function(){
+    var sex = wx.getStorageSync("sex");
+    var nick = wx.getStorageSync("my_nick");
+    if(sex=="男"){
+      sex = "女";
+      wx.getStorage({
+        key: 'my_username',
+        success: function (ress) {
+          if (ress.data) {
+            var my_username = ress.data;
+            wx.getStorage({
+              key: 'user_openid',
+              success: function (openid) {
+                var openid = openid.data;
+                var user = Bmob.User.logIn(my_username, openid, {
+                  success: function (users) {
+                    users.set('sex', sex);  // attempt to change username
+                    users.save(null, {
+                      success: function (user) {
+                        wx.setStorageSync('sex', sex);
+                      },
+                      error: function (error) {
+                        console.log(error)
+                      }
+                    });
+                  }
+                });
+              }, function(error) {
+                console.log(error);
+              }
+            })
+          }
+
+        }
+      })
+      wx.showToast({
+        title: '性别已改为:'+sex,
+        icon: 'success'
+      })
+    }
+    else{
+        sex = "男";
+        wx.setStorageSync("sex", sex);
+      wx.getStorage({
+        key: 'my_username',
+        success: function (ress) {
+          if (ress.data) {
+            var my_username = ress.data;
+            wx.getStorage({
+              key: 'user_openid',
+              success: function (openid) {
+                var openid = openid.data;
+                var user = Bmob.User.logIn(my_username, openid, {
+                  success: function (users) {
+                    users.set('sex', sex);  // attempt to change username
+                    users.save(null, {
+                      success: function (user) {
+                        wx.setStorageSync('sex', sex);
+                      },
+                      error: function (error) {
+                        console.log(error)
+                      }
+                    });
+                  }
+                });
+              }, function(error) {
+                console.log(error);
+              }
+            })
+          }
+
+        }
+      })
+        wx.showToast({
+          title: '性别已改为:'+sex,
+          icon: 'success'
+        })
+      
+    }
+  },
   modifyImg: function () {//修改头像
     wx.getStorage({
       key: 'user_id',
@@ -256,6 +336,33 @@ Page({
       }
     })
 
+  },
+  scorequery: function(e){
+    wx.getStorage({
+      key: 'my_username',
+      success: function (ress) {
+        if (ress.data) {
+          var my_username = ress.data;
+          wx.getStorage({
+            key: 'user_openid',
+            success: function (openid) {
+              var openid = openid.data;
+              var user = Bmob.User.logIn(my_username, openid, {
+                success: function (users) {
+                  var score = users.get('score');
+                  wx.showToast({
+                    title: '当前积分:'+score,
+                  })
+                }
+              });
+            }, function(error) {
+              console.log(error);
+            }
+          })
+        }
+
+      }
+    })
   },
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh()

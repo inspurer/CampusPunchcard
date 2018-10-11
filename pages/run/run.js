@@ -129,7 +129,7 @@ Page({
   },
 
   upload:function(){
-    if(oriMeters>0.1){
+    if(oriMeters>0.5){
       wx.getStorage({
         key: 'user_id',
         success: function (res) {
@@ -154,6 +154,7 @@ Page({
 
               run.set('nickname', me);
               run.set('user_id', user_id);
+              run.set('sex',wx.getStorageInfoSync("sex"));
               run.set('datetime', datetime);
               run.set('far', oriMeters);
               console.log(me, user_id);
@@ -179,7 +180,7 @@ Page({
     }
     else{
       wx.showToast({
-        title: '>0.1km才能上传数据',
+        title: '>0.5km后上传',
         icon: 'laoding',
       })
     }

@@ -5,8 +5,9 @@
 .toWrite {
   width: 100rpx;
   height: 100rpx;
-  background: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/29/360d32564024a5ab80e4477169949473.png) no-repeat;
+  background: url(http://bmob-cdn-21805.b0.upaiyun.com/2018/10/11/706ce3f340841e0f8068ac9e472dd323.png) no-repeat;
   padding: 0;
+
   background-size: cover;
   position: fixed;
   right: 74rpx;

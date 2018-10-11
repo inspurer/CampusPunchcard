@@ -1,5 +1,6 @@
 page {
   position: relative;
+  background: rgb(255,255,255);
   width: 100%;
   height: 100%;
 }
@@ -19,14 +20,14 @@ text {
   text-align: center;
   display: block;
   margin-top: 10px;
-  color: #7B68EE
+  color: rgb(9,233,28);
 }
 
 .softHtp {
   
   margin-top: 500rpx;
   text-align: center;
-  color:#7B68EE;
+  color:rgb(9,233,28);
 }
 
 

@@ -81,16 +81,16 @@ page {
   float: left;
   padding-left: 44rpx;
   padding-right: 16rpx;
-  background: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/29/6352c4c94000a31f80930e2126b5087b.png) no-repeat left 18rpx;
+  background: url(http://bmob-cdn-21805.b0.upaiyun.com/2018/10/11/d8721c2540389328804053e17c754770.png) no-repeat left 18rpx;
   background-size: 44rpx auto;
 }
 
 .content_footer .commNum {
-  background-image: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/12/19/bacf864040f3043d80b186e5af144b1c.png);
+  background-image: url(http://bmob-cdn-21805.b0.upaiyun.com/2018/10/11/7b092646408a0f2d8019cf5f53579531.png);
 }
 
 .content_footer .agree_1 {
-  background-image: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/29/923ac0c5402d0f8c805354d897b749d5.png);
+  background-image: url(http://bmob-cdn-21805.b0.upaiyun.com/2018/10/11/d04c1463408154c9807412080f59f021.png);
   color: #c0935b;
 }
 
@@ -276,9 +276,6 @@ page {
   background-size: 26px auto;
 }
 
-.operation .mail {
-  background-image: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/29/62ba7e2740c3deb280f471f9ee05e96e.png);
-}
 
 .operation .write {
   background-image: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/23/4dd6b75f40e2699e801fb9a1b414e460.png);
