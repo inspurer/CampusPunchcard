@@ -1,1 +1,1 @@
-<button type="primary" class="circle" bindtap="btn_click">点击打卡</button>
+<button type="primary" class="circle" bindtap="btn_click">开始打卡</button>

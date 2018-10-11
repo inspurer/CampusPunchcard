@@ -1,6 +1,13 @@
 /* pages/loginer/loginer.wxss */
 button{
-  margin-top: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;           
+  text-align: center;       
   width: 40%;
+  height: 50px;            
   background-color: rgb(9, 233, 28);
 }
