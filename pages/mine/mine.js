@@ -20,21 +20,65 @@ Page({
   onShow: function () {
 
     var user_id = wx.getStorageSync('user_id')
-
+    var my_username = wx.getStorageSync('my_username');
+    var open_id = wx.getStorageSync('user_openid');
     var objectId = user_id//currentUser._id;
     var me = new Bmob.User();
     me.id = objectId;
-    var Diary = Bmob.Object.extend("reply");
-    var query = new Bmob.Query(Diary);
+    var resultss = [];
+
+    var Comments = Bmob.Object.extend("Comments");
+    var query = new Bmob.Query(Comments);
 
     query.equalTo("fid", user_id);
-    query.count({
-      success: function (count) {
-        // 查询成功，返回记录数量
-        console.log("共有 " + count + " 条记录");
+
+    var myname = wx.getStorageSync('my_nick')
+    // 查询所有数据
+    query.find({
+      success: function (results) {
+        console.log("共查询到 " + results.length + " 条记录!", results);
+        // 循环处理查询到的数据
+        if (results.length == 0) {
+          var query1 = new Bmob.Query(Comments);
+          console.log("olderUserName", myname)
+          query1.equalTo("olderUserName", myname);
+          query1.find({
+            success: function (results1) {
+              console.log("共查询到 " + results1.length + " 条记录!!!", results1);
+              for (var i = 0; i < results1.length; i++) {
+                var object = results1[i];
+                object.set('behavior', 3);
+                resultss[i] = object;
+              }
+            }
+          })
+        }
+        else {
+          for (var i = 0; i < results.length; i++) {
+            var object = results[i];
+            if (object.get('username') != my_username) {
+              if (object.get('olderUserName')) {
+                console.log(object.get('olderUserName'), myname)
+                if (object.get('olderUserName') == myname) {
+                  object.set('behavior', 3);
+                  resultss[i] = object
+                }
+                resultss[i] = object
+              }
+              else {
+                resultss[i] = object
+              }
+            }
+          }
+          resultss = that.clear_arr_trim(resultss);
+        }
+
+ 
+
         that.setData({
-          remindscount: count
+          remindscount: resultss.length-wx.getStorageSync("newsnum")
         });
+        wx.setStorageSync("newsnum", resultss.length)
       },
       error: function (error) {
         // 查询失败
@@ -67,35 +111,35 @@ Page({
                 })
               }
             })
-            var newsLen = 0;
-            wx.request({
-              url: '',
-              header: {
-                "sessionKey": ress.data
-              },
-              data: {
-                "count": 1000
-              },
-              method: "GET",
-              success: function (res) {
-                if (res.data.error_code == "0") {
-                  for (var i = 0; i < res.data.result.length; i++) {
-                    if (res.data.result[i].is_read == "0") {
-                      newsLen = newsLen + 1;
-                    }
-                  }
-                  that.setData({
-                    remindscount: newsLen
+            //var newsLen = 0;
+            // wx.request({
+            //   url: '',
+            //   header: {
+            //     "sessionKey": ress.data
+            //   },
+            //   data: {
+            //     "count": 1000
+            //   },
+            //   method: "GET",
+            //   success: function (res) {
+            //     if (res.data.error_code == "0") {
+            //       for (var i = 0; i < res.data.result.length; i++) {
+            //         if (res.data.result[i].is_read == "0") {
+            //           newsLen = newsLen + 1;
+            //         }
+            //       }
+            //       that.setData({
+            //         remindscount: newsLen
 
-                  })
-                  wx.setStorageSync('remindscount', newsLen)
-                }
-                else {
-                  common.dataLoading(res.data.error, "loading");
-                }
+            //       })
+            //       wx.setStorageSync('remindscount', newsLen)
+            //     }
+            //     else {
+            //       common.dataLoading(res.data.error, "loading");
+            //     }
 
-              }
-            })
+            //   }
+            // })
           }
 
         }
@@ -312,7 +356,7 @@ Page({
                         isdisabled: false,
                         modifyLoading: false
                       })
-                      common.dataLoading("修改班级姓名成功", "success");
+                      common.dataLoading("修改成功", "success");
 
                     },
                     error: function (error) {
@@ -363,6 +407,15 @@ Page({
 
       }
     })
+  },
+  clear_arr_trim: function (array) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] == "" || typeof (array[i]) == "undefined") {
+        array.splice(i, 1);
+        i = i - 1;
+      }
+    }
+    return array;
   },
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh()

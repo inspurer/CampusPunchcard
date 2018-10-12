@@ -57,6 +57,7 @@ Page({
                                     try {
                                       console.log('sex'+user.get('sex'));
                                       console.log('score' + user.get('score'));
+                                      wx.setStorageSync("newsnum", user.get('newsnum'))
 
                                       wx.setStorageSync("sex", user.get('sex'));
                                       wx.setStorageSync("score", user.get('score'));
@@ -80,6 +81,7 @@ Page({
                                       user.set("sex","男");
                                       
                                       user.set("score",0);
+                                      user.setStorageSync('newsnum',0);
                                       user.set("nickname", nickName);
                                       user.set("userPic", avatarUrl);
                                       user.set("userData", userData);
@@ -91,6 +93,8 @@ Page({
                                             wx.setStorageSync('user_openid', results.get("userData").openid)
                                             wx.setStorageSync('user_id', results.id);
                                             wx.setStorageSync('my_username', results.get("username"));
+                                            wx.setStorageSync("newsnum", results.get('newsnum'));
+
                                             wx.setStorageSync("score", 0);
                                             wx.setStorageSync("sex", "男");
                                             wx.setStorageSync('my_nick', results.get("nickname"));

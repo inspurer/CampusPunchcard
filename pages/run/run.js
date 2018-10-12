@@ -88,6 +88,9 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     this.getLocation()
     console.log("onLoad")
+    wx.setKeepScreenOn({
+      keepScreenOn: true
+    })
     count_down(this);
   },
   onShow:function(){

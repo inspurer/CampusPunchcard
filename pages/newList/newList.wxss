@@ -41,7 +41,7 @@
 
 .list_right_top .nvg {
   float: right;
-  color: #bf925c;
+  color: rgb(9,233,28);
 }
 
 .list_right .op_type {

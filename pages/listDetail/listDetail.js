@@ -351,6 +351,9 @@ Page({
           //查询单条数据，第一个参数是这条数据的objectId值
           queryUser.get(ress.data, {
             success: function (userObject) {
+              var value = wx.getStorageSync('my_avatar')
+              var my_username = wx.getStorageSync('my_username')
+
               // 查询成功，调用get方法获取对应属性的值
               var Comments = Bmob.Object.extend("Comments");
               var comment = new Comments();
@@ -361,6 +364,11 @@ Page({
               me.id = ress.data;
               comment.set("publisher", me);
               comment.set("mood", diary);
+              comment.set("username", my_username);
+              comment.set("fid", that.data.objectIds);
+              comment.set("wid", optionId);
+              comment.set("behavior",4)
+              comment.set("avatar", value);
               comment.set("content", e.detail.value.commContent);
               if (that.data.isToResponse) {
                 var olderName = that.data.resopneName;
@@ -383,9 +391,7 @@ Page({
 
                       var isme = new Bmob.User();
                       isme.id = ress.data;
-                      var value = wx.getStorageSync('my_avatar')
-                      var my_username = wx.getStorageSync('my_username')
-
+                 
                       var Diary = Bmob.Object.extend("reply");
                       var diary = new Diary();
                       diary.set("behavior", 3);
@@ -399,7 +405,7 @@ Page({
                       diary.save(null, {
                         success: function (result) {
                           // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
-                          console.log("日记创建成功, objectId:" + result.id);
+                          console.log("创建成功, objectId:" + result.id);
                         },
                         error: function (result, error) {
                           // 添加失败
