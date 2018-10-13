@@ -41,7 +41,7 @@ Page({
                 console.log("共查询到 " + results.length + " 条记录");
                 if(results.length == 0){
                   if (hour > 0) {
-                    if (hour < 12) {
+                    if (hour < 24) {
                       var intger;
                       if (minute < 20) {
                         intger = 3;

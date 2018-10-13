@@ -81,7 +81,7 @@ Page({
                                       user.set("sex","男");
                                       
                                       user.set("score",0);
-                                      user.setStorageSync('newsnum',0);
+                                      user.set('newsnum',0);
                                       user.set("nickname", nickName);
                                       user.set("userPic", avatarUrl);
                                       user.set("userData", userData);

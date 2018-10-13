@@ -179,9 +179,9 @@ Page({
         duration: 1000
       })
       return {
-        title: "心邮",
+        title: "test",
         desc: "test",
-        path: '/pages/mail/mail',
+        path: '/pages/school/school',
       }
     }
 
@@ -264,7 +264,7 @@ Page({
       name = "";
     }
     if (userId == wx.getStorageSync('user_id')) {
-      common.dataLoading("不能对自己的评论进行回复", "loading");
+      common.dataLoading("不回复自己评论", "loading");
     }
     else {
       var toggleResponse;
@@ -352,7 +352,7 @@ Page({
           queryUser.get(ress.data, {
             success: function (userObject) {
               var value = wx.getStorageSync('my_avatar')
-              var my_username = wx.getStorageSync('my_username')
+              var my_nick = wx.getStorageSync('my_nick')
 
               // 查询成功，调用get方法获取对应属性的值
               var Comments = Bmob.Object.extend("Comments");
@@ -364,7 +364,7 @@ Page({
               me.id = ress.data;
               comment.set("publisher", me);
               comment.set("mood", diary);
-              comment.set("username", my_username);
+              comment.set("username", my_nick);
               comment.set("fid", that.data.objectIds);
               comment.set("wid", optionId);
               comment.set("behavior",4)
@@ -396,7 +396,7 @@ Page({
                       var diary = new Diary();
                       diary.set("behavior", 3);
                       diary.set("avatar", value);
-                      diary.set("username", my_username);
+                      diary.set("username", my_nick);
                       diary.set("uid", isme);
                       diary.set("wid", optionId);
                       diary.set("fid", that.data.objectIds);

@@ -25,68 +25,41 @@ Page({
     var objectId = user_id//currentUser._id;
     var me = new Bmob.User();
     me.id = objectId;
-    var resultss = [];
 
     var Comments = Bmob.Object.extend("Comments");
     var query = new Bmob.Query(Comments);
 
-    query.equalTo("fid", user_id);
 
     var myname = wx.getStorageSync('my_nick')
-    // 查询所有数据
+    query.equalTo("olderUserName", myname);
+    query.descending('createdAt');
     query.find({
-      success: function (results) {
-        console.log("共查询到 " + results.length + " 条记录!", results);
-        // 循环处理查询到的数据
-        if (results.length == 0) {
-          var query1 = new Bmob.Query(Comments);
-          console.log("olderUserName", myname)
-          query1.equalTo("olderUserName", myname);
-          query1.find({
-            success: function (results1) {
-              console.log("共查询到 " + results1.length + " 条记录!!!", results1);
-              for (var i = 0; i < results1.length; i++) {
-                var object = results1[i];
-                object.set('behavior', 3);
-                resultss[i] = object;
-              }
-            }
-          })
+      success: function (result1) {
+        console.log('total', result1.length);
+        for (var i = 0; i < result1.length; i++) {
+          result1[i].set('behavior', 3);
         }
-        else {
-          for (var i = 0; i < results.length; i++) {
-            var object = results[i];
-             //var gettype = Object.prototype.toString;
-             //console.log('tt', gettype.call(object.createdAt));
-            //console.log(object.createdAt.substring(11,19));
-            if (object.get('username') != my_username) {
-              if (object.get('olderUserName')) {
-                console.log(object.get('olderUserName'), myname)
-                if (object.get('olderUserName') == myname) {
-                  object.set('behavior', 3);
-                  resultss[i] = object
-                }
-                resultss[i] = object
-              }
-              else {
-                resultss[i] = object
+        var query1 = new Bmob.Query(Comments);
+        query1.equalTo('fid', user_id)
+        query1.descending('createdAt');
+        query1.find({
+          success: function (result2) {
+            for (var i = 0; i < result2.length; i++) {
+              if (!result2[i].olderUserName && result2.username != myname) {
+                result1[result1.length] = result2[i]
               }
             }
+            that.setData({
+              remindscount: result1.length - wx.getStorageSync("newsnum")
+            });
+            wx.setStorageSync("newsnum", result1.length)
           }
-          resultss = that.clear_arr_trim(resultss);
-        }
+        })
 
- 
-
-        that.setData({
-          remindscount: resultss.length-wx.getStorageSync("newsnum")
-        });
-        wx.setStorageSync("newsnum", resultss.length)
-      },
-      error: function (error) {
-        // 查询失败
       }
-    });
+    })
+
+   
 
     var myInterval = setInterval(getReturn, 500);
     function getReturn() {

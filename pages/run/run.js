@@ -132,7 +132,7 @@ Page({
   },
 
   upload:function(){
-    if(oriMeters>0.5){
+    if(oriMeters>0.01){
       wx.getStorage({
         key: 'user_id',
         success: function (res) {
@@ -157,7 +157,7 @@ Page({
 
               run.set('nickname', me);
               run.set('user_id', user_id);
-              run.set('sex',wx.getStorageInfoSync("sex"));
+              run.set('sex',wx.getStorageSync("sex"));
               run.set('datetime', datetime);
               run.set('far', oriMeters);
               console.log(me, user_id);

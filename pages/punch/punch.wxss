@@ -12,9 +12,9 @@ view{
     padding:40rpx 0;
 }
 .title{
-  margin-top: 25px;
+  margin-top: 12px;
   font-size: 20px;
-  height: 25px;
+  height: 12px;
   text-align: center;  
 }
 .items{
@@ -74,6 +74,7 @@ view{
     padding-top: 28px;
     background-size: cover;
     position: fixed;
+    z-index: 9999;
     font-size: 20px;
     text-align: center;
     border: 0 solid #ffffff;

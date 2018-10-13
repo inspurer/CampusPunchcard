@@ -14,8 +14,8 @@
         <view class="nvg nvg_{{item.is_read}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">
           <text wx:if="{{item.behavior==1}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">查看详情</text>
           <text wx:elif="{{item.behavior==2}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">查看详情</text>
-          <text wx:elif="{{item.behavior==4}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">回复</text>
-          <text wx:elif="{{item.behavior==3}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">回复</text>
+          <text wx:elif="{{item.behavior==4}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">查看详情</text>
+          <text wx:elif="{{item.behavior==3}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">查看详情</text>
           <text wx:elif="{{item.behavior==5}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">动态被屏蔽</text>
           <text wx:elif="{{item.behavior==6}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">评论被屏蔽</text>
           <text wx:elif="{{item.behavior==7}}" data-id="{{item.objectId}}" data-wid="{{item.wid}}">反馈回复</text>
@@ -37,5 +37,5 @@
   </view>
 </scroll-view>
 <text class="noData" wx:if="{{newList.length<=0}}">
-  你还暂时还没有消息
+  你暂时还没有消息
 </text>
