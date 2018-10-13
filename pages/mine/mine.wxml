@@ -19,7 +19,7 @@
       <view wx-if="{{remindscount>0}}">{{remindscount}}</view>消息
     </navigator>
 
-    <navigator url="../about/about">关于</navigator>
+    <navigator url="../more/more">更多</navigator>
   </view>
   <view class="modify_nick_layer" wx:if="{{isModifyNick}}" bindtap="hiddenComment"></view>
   <view class="modify_nick" wx:if="{{isModifyNick}}">

@@ -1,30 +1,25 @@
-
-.header{
-    margin-top: 20;
-    line-height: 1;
+/* pages/loginer/loginer.wxss */
+page{
+  width:100%;
+  height:100%;
+  overflow: hidden;
 }
-
-
-
-.bigTitle{
-    font-size: 52rpx;
-    padding-left:  30rpx;
-    padding-right: 30rpx;
-    padding-top: 60rpx;
-    position: center;
+button{
+  margin: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  background-color: #FFFFFF;
+  color: rgb(0, 0, 0);
+  right: 0;
+  text-align: center;       
+  width: 40%;
+  height: 50px;      
+  border-radius: 20px;    
 }
-
-
-.widgets__item{
-    margin-top: 40rpx;
-    margin-bottom: 20rpx;
-    height: 60rpx;
-    margin-left: 50rpx;
-    margin-right: 50rpx;
-    text-align: center;
-    overflow: hidden;
-    color: rgb(9,233,28);
-    font-size: 40rpx;
-    border-radius: 4rpx;
-    cursor: pointer;
+.back_img{
+  height: 100%;
+  background-size: cover;
+  width: 100%;
+  /* background-image: url(http://bmob-cdn-21805.b0.upaiyun.com/2018/10/13/69b7579f40bdada180870128f6182832.jpg); */
 }

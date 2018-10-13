@@ -1,6 +1,3 @@
-page {
-  background-color: rgb(229, 236, 240);
-}
 /* pages/leftSwiperDel/index.wxss */
 view{
     box-sizing: border-box;
@@ -64,20 +61,4 @@ view{
  
 .rankpace{
   color: rgb(0,139,0);
-}
-.circle{
-  
-    right: 35px;
-    bottom: 35px;         
-    width: 110px;
-    height: 110px;
-    padding-top: 28px;
-    background-size: cover;
-    position: fixed;
-    font-size: 20px;
-    text-align: center;
-    border: 0 solid #ffffff;
-    border-radius: 500px;
-    box-shadow: 4px 1px 1px #cccccc;
-
 }

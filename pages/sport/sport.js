@@ -1,15 +1,7 @@
 Page({
-  data: {
-    pageNames: [
-     {
-        id: 'run',
-        name: '跑步',
-      },
-      {
-        id: 'walk',
-        name: '步行',
-      }
-    ]
-  },
-  
+  torun:function(e){
+    wx.navigateTo({
+      url: '../run/run',
+    })
+  }
 });

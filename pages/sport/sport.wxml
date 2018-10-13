@@ -1,24 +1,3 @@
-
-
-
-<view clas="mainView">
-    <!--标题-->
-
-    <view class="header">
-        <view class="bigTitle">运动类型</view>
-    </view>
-    
-    
-    
-    <view class="body">
-        <view class="widget">
-            <block wx:for="{{pageNames}}">
-                <view class="widgets__item">
-                    <navigator url="../{{item.id}}/{{item.id}}">{{item.name}}</navigator>
-                </view>
-            </block>
-        </view>
-    </view>
-
-</view>
-    
+<button bindtap='torun'>开始运动</button>
+<image  src = '../../static/images/sport.jpg' mode = "scaleToFill" class="back_img">
+</image>

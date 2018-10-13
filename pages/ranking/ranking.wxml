@@ -19,5 +19,3 @@
     </view>
   </view>
 </view><!--pages/ranking/ranking.wxml-->
-
-<button type="primary" class="circle" bindtap="btn_click">开始打卡</button>

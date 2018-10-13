@@ -56,6 +56,9 @@ Page({
         else {
           for (var i = 0; i < results.length; i++) {
             var object = results[i];
+             //var gettype = Object.prototype.toString;
+             //console.log('tt', gettype.call(object.createdAt));
+            //console.log(object.createdAt.substring(11,19));
             if (object.get('username') != my_username) {
               if (object.get('olderUserName')) {
                 console.log(object.get('olderUserName'), myname)

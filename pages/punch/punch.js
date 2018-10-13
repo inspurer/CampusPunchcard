@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+   newList: [],
   },
 
   btn_click: function(e){
@@ -28,6 +28,7 @@ Page({
             var minute = mydate.getMinutes(); //获取当前分钟数(0-59)
             var second = mydate.getSeconds(); //获取当前秒数(0-59)
             var time = hour + "时" + minute + "分" + second + "秒";
+            var avatar = wx.getStorageSync("my_avatar");
             var Punch = Bmob.Object.extend("punch");
             var punch = new Punch();
             var me = ress.data;
@@ -39,8 +40,8 @@ Page({
               success: function (results) {
                 console.log("共查询到 " + results.length + " 条记录");
                 if(results.length == 0){
-                  if (hour > 5) {
-                    if (hour < 7) {
+                  if (hour > 0) {
+                    if (hour < 12) {
                       var intger;
                       if (minute < 20) {
                         intger = 3;
@@ -52,7 +53,7 @@ Page({
                         intger = 1;
                       }
                       wx.showToast({
-                        title: '打卡成功加'+str(intger)+"分",
+                        title: '打卡成功加'+intger+"分",
                         icon: 'success'
                       })
                       wx.getStorage({
@@ -89,6 +90,7 @@ Page({
                       punch.set('nickname', me);
                       punch.set('user_id', user_id);
                       punch.set('date', date);
+                      punch.set('avatar',avatar)
                       punch.set('time', time);
                       console.log(me, user_id);
                       punch.save(null, {
@@ -118,7 +120,7 @@ Page({
                 }
                 else{
                   wx.showToast({
-                    title: '您已重复签到',
+                    title: '重复打卡',
                     icon: 'loading'
                   })
                 }
@@ -133,9 +135,36 @@ Page({
       },
     })
   },
-  
-  onLoad: function () {
+  tempData: function () {
+    var that = this;
+    var Punch = Bmob.Object.extend("punch");
+    var query = new Bmob.Query(Punch);
+    var mydate = new Date();
+    var year = mydate.getFullYear();
+    var month = mydate.getMonth() + 1;
+    var day = mydate.getDate();
+    var date = year + "年" + month + "月" + day + "日";
+    query.equalTo("date", date);
+    var results = [];
+    query.find({
+      success: function (result) {
+        for (var i = 0; i < result.length; i++) {
+          console.log('totlerr', result.length)
+          var object = result[i];
+          object.set('time', object.createdAt.substring(11, 19));
+          object.set('rank', i + 1);
+          results[i] = object;
+        }
+        console.log(results);
+        that.setData({
+          list: results
+        });
+      }
+    })
 
+  },
+  onLoad: function () {
+    this.tempData();
   },
  
   /**
@@ -164,7 +193,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
- 
+    this.tempData();
+    wx.stopPullDownRefresh();
   },
  
   /**

@@ -15,7 +15,6 @@ textarea {
 page .form_submit {
   width: 400rpx;
   height: 88rpx;
-  background: #be925c;
   margin: 0 auto;
   display: block;
   color: #fff;
