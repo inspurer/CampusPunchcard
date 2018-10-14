@@ -9,23 +9,94 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    hiddenmodalput: true,
+    cname: '',
+    sexx: ''
+  },
 
+  cancel: function(e){
+    wx.showToast({
+      title: '务必输入',
+      icon: 'loading'
+    })
+  },
+
+  cn:function(e){
+    console.log(e.detail.value)
+    this.setData({
+      cname: e.detail.value
+    })
+  },
+
+  se: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      sexx: e.detail.value
+    })
+  },
+
+  confirm: function (e) {
+    var that = this;
+    if (!(that.data.sexx == '男' || that.data.sexx == '女')){
+      wx.showToast({
+        title: '性别输入有误',
+      })
+      return;
+    }
+    if(!that.data.cname){
+      wx.showToast({
+        title: '姓名班级有误',
+      })
+      return;
+    }
+    this.setData({
+      hiddenmodalput: true,
+    })
+    wx.getStorage({
+      key: 'my_username',
+      success: function (ress) {
+        if (ress.data) {
+          var my_username = ress.data;
+          wx.getStorage({
+            key: 'user_openid',
+            success: function (openid) {
+              var openid = openid.data;
+              var user = Bmob.User.logIn(my_username, openid, {
+                success: function (users) {
+                  users.set('nickname', that.data.cname);
+                  users.set('sex',that.data.sexx)
+                  users.save(null, {
+                    success: function (user) {
+                      wx.setStorageSync('my_nick', that.data.cname);
+                      wx.setStorageSync("sex", that.data.sexx);
+                    },
+                    error: function (error) {
+                      console.log(error)
+                    }
+                  });
+                }
+              });
+            }, function(error) {
+              console.log(error);
+            }
+          })
+        }
+
+      }
+    })
+    wx.switchTab({
+      url: '../punch/punch',
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSystemInfo({
-      success: function(res) {
-        console.log(res.windowHeight);
-        console.log(res.windowWidth);
-      },
-    })
   },
 
   bindGetUserInfo: function (e) {
-    console.log(e.detail.userInfo)
+    var that = this;
     // 查看是否授权
     wx.getSetting({
       success: function (res) {
@@ -38,6 +109,7 @@ Page({
                 var value = wx.getStorageSync('user_openid')
                 if (value) {
                   console.log("value不为空")
+                  
                   wx.switchTab({
                     url: '../punch/punch',
                   })
@@ -45,6 +117,7 @@ Page({
                   console.log("value为空")
                   wx.login({
                     success: function (res) {
+                     
                       console.log('res', res)
                       if (res.code) {
                         Bmob.User.requestOpenId(res.code, {
@@ -69,12 +142,13 @@ Page({
                                     } catch (e) {
                                     }
                                     console.log("登录成功y");
-                                    wx.switchTab({
-                                      url: '../punch/punch',
-                                    });
+                                 
                                   },
                                   error: function (user, error) {
                                     if (error.code == "101") {
+                                      that.setData({
+                                        hiddenmodalput: false,
+                                      })
                                       var user = new Bmob.User();//开始注册用户
                                       user.set("username", nickName);
                                       user.set("password", userData.openid);//因为密码必须提供，但是微信直接登录小程序是没有密码的，所以用openId作为唯一密码                   
@@ -102,9 +176,7 @@ Page({
                                             )
 
                                             console.log("注册成功!");
-                                            wx.switchTab({
-                                              url: '../punch/punch',
-                                            });
+                                        
                                           } catch (e) {
                                           }
                                         },

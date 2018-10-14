@@ -51,7 +51,6 @@ Page({
     query.descending('createdAt');
     query.find({
       success:function(result1){
-        console.log('total',result1.length);
         for (var i = 0; i < result1.length; i++) {
           result1[i].set('behavior',3);
         }
@@ -66,7 +65,8 @@ Page({
               }
             }
 
-          console.log('1111',result1.sort(that.compare('createdAt')))
+          //result1.sort(that.compare('createdAt'))
+    
           that.setData({
             newList: result1
           })

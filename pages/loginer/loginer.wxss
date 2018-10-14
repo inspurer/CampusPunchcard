@@ -4,6 +4,13 @@ page{
   height:100%;
   overflow: hidden;
 }
+.info{
+  color: red;
+}
+text{
+  color: rgb(0,205,0);
+  font-size: 20px;
+}
 button{
   margin: auto;
   position: absolute;

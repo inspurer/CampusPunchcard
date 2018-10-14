@@ -145,11 +145,12 @@ Page({
     var day = mydate.getDate();
     var date = year + "年" + month + "月" + day + "日";
     query.equalTo("date", date);
+    query.limit(50);
     var results = [];
     query.find({
       success: function (result) {
         for (var i = 0; i < result.length; i++) {
-          console.log('totlerr', result.length)
+          console.log('共有打卡记录:', result.length)
           var object = result[i];
           object.set('time', object.createdAt.substring(11, 19));
           object.set('rank', i + 1);

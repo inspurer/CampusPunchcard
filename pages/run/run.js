@@ -132,7 +132,7 @@ Page({
   },
 
   upload:function(){
-    if(oriMeters>0.01){
+    if(oriMeters>-0.01){
       wx.getStorage({
         key: 'user_id',
         success: function (res) {
@@ -148,32 +148,132 @@ Page({
               var hour = mydate.getHours(); //获取当前小时数(0-23)
               var minute = mydate.getMinutes(); //获取当前分钟数(0-59)
               var second = mydate.getSeconds(); //获取当前秒数(0-59)
-              var datetime = year + "年" + month + "月" + day + "日" + hour + "时" + minute + "分" + second + "秒";
+              var date = year + "年" + month + "月" + day + "日";
               var Run = Bmob.Object.extend("run");
               var run = new Run();
               var me = ress.data;
 
-              // 查询所有数据
+              var query = new Bmob.Query(Run);
+              query.equalTo("nickname", me);
+              query.equalTo("date", date);
+              query.find({
+                success:function(result){
+                  if(result.length==0){
 
-              run.set('nickname', me);
-              run.set('user_id', user_id);
-              run.set('sex',wx.getStorageSync("sex"));
-              run.set('datetime', datetime);
-              run.set('far', oriMeters);
-              console.log(me, user_id);
-              run.save(null, {
-                success: function (result) {
-                  console.log('success');
-                  oriMeters = 0;
-                  wx.showToast({
-                    title: '上传成功',
-                    icon: 'success'
-                  })
-                },
-                error: function (result, error) {
-                  console.log(result, error, "failure")
+                    run.set('nickname', me);
+                    run.set('user_id', user_id);
+                    run.set('sex', wx.getStorageSync("sex"));
+                    run.set('date', date);
+                    run.set('far', oriMeters);
+                    console.log(me, user_id);
+                    run.save(null, {
+                      success: function (result) {
+                        console.log('success');
+                        wx.showToast({
+                          title: '上传成功',
+                          icon: 'success'
+                        })
+                        var intger;
+                        if(wx.getStorageSync('sex')=='女'){
+                          if(oriMeters>=5){
+                            intger = 5;
+                          }
+                          else if (oriMeters >= 4){
+                            intger = 4;
+                          }
+                          else if (oriMeters >= 3) {
+                            intger = 3;
+                          }
+                          else if (oriMeters >= 2) {
+                            intger = 2;
+                          }
+                          else if (oriMeters >= 1) {
+                            intger = 1;
+                          }
+                        }
+                        else{
+                          if (oriMeters >= 5.5) {
+                            intger = 5;
+                          }
+                          else if (oriMeters >= 4.5) {
+                            intger = 4;
+                          }
+                          else if (oriMeters >= 3.5) {
+                            intger = 3;
+                          }
+                          else if (oriMeters >= 2.5) {
+                            intger = 2;
+                          }
+                          else if (oriMeters >= 1.5) {
+                            intger = 1;
+                          }
+                        }
+                        wx.getStorage({
+                          key: 'my_username',
+                          success: function (ress) {
+                            if (ress.data) {
+                              var my_username = ress.data;
+                              wx.getStorage({
+                                key: 'user_openid',
+                                success: function (openid) {
+                                  var openid = openid.data;
+                                  var user = Bmob.User.logIn(my_username, openid, {
+                                    success: function (users) {
+                                      var score = users.get('score');
+                                      score = score + intger;
+                                      users.set('score', score);
+                                      users.save(null, {
+                                        success: function (user) {
+                                        },
+                                        error: function (error) {
+                                          console.log(error)
+                                        }
+                                      });
+                                    }
+                                  });
+                                }, function(error) {
+                                  console.log(error);
+                                }
+                              })
+                            }
+
+                          }
+                        })
+                      },
+                      error: function (result, error) {
+                        console.log(result, error, "failure")
+                      }
+                    })
+                    oriMeters = 0;
+
+                  }
+                  else{
+                    wx.showToast({
+                      title: '已跑过',
+                      icon: 'loading'
+                    })
+                  }
+                  // else{
+                  //   console.log(result[0].get('far'),oriMeters)
+                  //   if(result[0].get('far')>=oriMeters){
+                  //     wx.showToast({
+                  //       title: '要跑过上一次',
+                  //       icon: 'loading'
+                  //     })
+                  //   }
+                  //   else{
+                  //     result[0].set('far',oriMeters);
+                  //     oriMeters = 0;
+                  //     wx.showToast({
+                  //       title: '数据更新成功',
+                  //       icon: 'success'
+                  //     })
+                  //   }
+                  // }
                 }
               })
+              // 查询所有数据
+
 
             }
           })
