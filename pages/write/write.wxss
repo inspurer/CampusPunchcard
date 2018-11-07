@@ -7,7 +7,7 @@
 .addConent{padding-top:30rpx;height:200rpx;overflow:hidden;margin-bottom:30rpx;}
 label{color:#a0a0a0;padding-left:40rpx;}
 label text{padding-left:10rpx;}
-button{width:400rpx;height:80rpx;line-height:80rpx;text-align:center;font-size:16px;border:0 none;background:rgb(9, 233, 28);color:#fff;margin:30rpx auto}
+button{width:400rpx;height:80rpx;line-height:80rpx;text-align:center;font-size:16px;border:0 none;background:#13227a;color:#fff;margin:30rpx auto}
 .picPre{width:50%;margin:0 auto;position:relative;box-sizing:border-box;}
 .picPre image{width:100%;height:180rpx;}
 .picPre view{position: absolute;right:0px;top:-20rpx;width:15px;height:15px;background:url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/23/23e708d8401db28080a47d384712f765.png) no-repeat;background-size: cover;}

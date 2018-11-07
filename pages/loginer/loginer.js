@@ -1,7 +1,7 @@
 // pages/loginer/loginer.js
 var Bmob = require("../../utils/bmob.js");
 var common = require("../../utils/common.js");
-Bmob.initialize("78aa3163a7c94355185893342061a7f1", "09f4b80cd11c725d5519e1838c7467e8");
+Bmob.initialize("21bfff5a3475bc30f1786c15f3cea412", "51a3cfa0b3d103e9a0d9242c8eac1b4a");
 Page({
 
   /**
@@ -11,7 +11,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     hiddenmodalput: true,
     cname: '',
-    sexx: ''
+    sexx: '',
+    iname: '',
   },
 
   cancel: function(e){
@@ -34,8 +35,14 @@ Page({
       sexx: e.detail.value
     })
   },
+  ina: function(e){
+    this.setData({
+      iname:e.detail.value
+    })
+  },
 
   confirm: function (e) {
+   
     var that = this;
     if (!(that.data.sexx == '男' || that.data.sexx == '女')){
       wx.showToast({
@@ -49,6 +56,42 @@ Page({
       })
       return;
     }
+    if(that.data.iname.length>0)
+    {
+      var User = Bmob.Object.extend("_User");
+      var query = new Bmob.Query(User);
+      query.equalTo('nickname', that.data.iname)
+      query.find({
+        success: function (results) {
+          if (results.length == 0) {
+            wx.showToast({
+              title: '无此邀请人',
+              icon: 'loading'
+            })
+            return;
+          }
+          var user = Bmob.User.logIn(results[0].get('username'), results[0].get('userData').openid, {
+            success: function (users) {
+              var score = users.get('score');
+              score = score + 2;
+              users.set('score', score);
+              users.save(null, {
+                success: function (user) {
+                  wx.showToast({
+                    title: '被邀请成功',
+                    icon: 'success'
+                  })
+                },
+                error: function (error) {
+                  console.log(error)
+                }
+              });
+            }
+          });
+        }
+      })
+    }
+
     this.setData({
       hiddenmodalput: true,
     })
@@ -117,11 +160,11 @@ Page({
                   console.log("value为空")
                   wx.login({
                     success: function (res) {
-                     
                       console.log('res', res)
                       if (res.code) {
                         Bmob.User.requestOpenId(res.code, {
                           success: function (userData) {
+                            console.log('uD',userData)
                                 var userInfo = e.detail.userInfo;
                                 var nickName = userInfo.nickName;
                                 var avatarUrl = userInfo.avatarUrl;
@@ -145,6 +188,7 @@ Page({
                                  
                                   },
                                   error: function (user, error) {
+                                    console.log('test',error)
                                     if (error.code == "101") {
                                       that.setData({
                                         hiddenmodalput: false,
@@ -200,6 +244,7 @@ Page({
                         console.log('获取用户登录态失败！' + res.errMsg)
                       }
                     },
+               
                 
                   });
                 }

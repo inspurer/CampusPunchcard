@@ -20,14 +20,14 @@ text {
   text-align: center;
   display: block;
   margin-top: 10px;
-  color: rgb(9,233,28);
+  color: #13227a;
 }
 
 .softHtp {
   
   margin-top: 500rpx;
   text-align: center;
-  color:rgb(9,233,28);
+  color:#13227a;
 }
 
 

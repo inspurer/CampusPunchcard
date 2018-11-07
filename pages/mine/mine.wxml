@@ -12,7 +12,7 @@
   <view class="operations">
     <view bindtap="modifyImg">修改头像</view>
     <!--<view bindtap="modifySex">修改性别</view>-->
-    <view bindtap="modifyNick">班级姓名</view>
+    <!--<view bindtap="modifyNick">班级姓名</view>-->
     <view bindtap="scorequery">积分查询</view>
 
     <navigator url="../newList/newList" class="unread">
@@ -29,3 +29,4 @@
     </form>
   </view>
 </view>
+

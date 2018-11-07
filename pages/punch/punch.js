@@ -40,20 +40,33 @@ Page({
               success: function (results) {
                 console.log("共查询到 " + results.length + " 条记录");
                 if(results.length == 0){
-                  if (hour > 0) {
-                    if (hour < 24) {
+                  if (hour >= 6) {
+                    if (hour <= 8) {
                       var intger;
-                      if (minute < 20) {
-                        intger = 3;
+                      if(hour <= 7){
+                        if (minute < 20) {
+                          intger = 3;
+                        }
+                        else if (minute < 40) {
+                          intger = 2.5;
+                        }
+                        else {
+                          intger = 2;
+                        }
                       }
-                      else if (minute < 40) {
-                        intger = 2;
-                      }
-                      else {
-                        intger = 1;
+                      else if(hour<=8){
+                        if (minute < 20) {
+                          intger = 1.5;
+                        }
+                        else if (minute < 40) {
+                          intger = 1;
+                        }
+                        else {
+                          intger = 0.5;
+                        }
                       }
                       wx.showToast({
-                        title: '打卡成功加'+intger+"分",
+                        title: '打卡成功+'+intger+"分",
                         icon: 'success'
                       })
                       wx.getStorage({

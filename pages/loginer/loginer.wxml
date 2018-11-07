@@ -5,11 +5,13 @@
 <input type='text' bindinput='cn' name="classname" placeholder="如:通信1602肖涛" focus="true"/>
 <text>性别:</text>
 <input type='text' bindinput='se' name ="sex" placeholder="如:男" focus="true"/>
+<text>邀请人(选):</text>
+<input type='text' bindinput='ina' name ="invitedname" placeholder="如:通信1602肖涛" focus="true"/>
 <text class="info">一经提交,不可修改!</text>
 </modal>
 
 <!-- 需要使用 button 来授权登录 -->
-<button type = "primary" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<button  wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 <view wx:else>请升级微信版本</view>
 <view class="back_img">
 </view>

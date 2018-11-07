@@ -25,3 +25,6 @@ page .form_submit {
   background: none;
   border: 0;
 }
+button{
+  background-color: #13227a;
+}

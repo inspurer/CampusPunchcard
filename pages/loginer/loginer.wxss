@@ -8,7 +8,7 @@ page{
   color: red;
 }
 text{
-  color: rgb(0,205,0);
+  color: #13227a;
   font-size: 20px;
 }
 button{
@@ -16,8 +16,8 @@ button{
   position: absolute;
   top: 100px;
   left: 0;
-  background-color: #FFFFFF;
-  color: rgb(0, 0, 0);
+  color: white;
+  background-color:  #13227a;
   right: 0;
   text-align: center;       
   width: 40%;

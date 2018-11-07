@@ -49,12 +49,6 @@
         "text": "发布动态"
       },
       {
-        "pagePath": "pages/sport/sport",
-        "selectedIconPath": "static/images/sport1.png",
-        "iconPath": "static/images/sport.png",
-        "text": "运动助手"
-      },
-      {
         "pagePath": "pages/mine/mine",
         "selectedIconPath": "static/images/mine1.png",
         "iconPath": "static/images/mine.png",
