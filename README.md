@@ -13,14 +13,12 @@
 ### 3、跑步也可换算积分，换算的规则男女有别。   
 ## 实现效果     
 <p align="center">
-![](https://i.imgur.com/HROakCa.jpg)     
-![](https://i.imgur.com/JtbINuy.jpg)     
-![](https://i.imgur.com/huWnNXu.jpg)     
-![](https://i.imgur.com/hvKAPCi.jpg)     
-![](https://i.imgur.com/xcUyMnX.jpg)     
-![](https://i.imgur.com/A2ppD0v.jpg)     
-![](https://i.imgur.com/TYXFybN.jpg)     
-![](https://i.imgur.com/NNazajL.jpg)     
-![](https://i.imgur.com/qlOLDji.jpg)      
+ <img src="https://i.imgur.com/HROakCa.jpg"></a>
+ <img src="https://i.imgur.com/JtbINuy.jpg"></a>
+ <img src="https://i.imgur.com/hvKAPCi.jpg"></a>
+ <img src="https://i.imgur.com/xcUyMnX.jpg"></a>
+ <img src="https://i.imgur.com/A2ppD0v.jpg"></a>
+ <img src="https://i.imgur.com/NNazajL.jpg"></a>
+ <img src="https://i.imgur.com/qlOLDji.jpg"></a>   
  </p>
 ## 欢迎star、fork!!!
