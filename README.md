@@ -12,25 +12,25 @@
 ### 2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。   
 ### 3、跑步也可换算积分，换算的规则男女有别。   
 ## 实现效果     
-<p align="center" width="400" height="300>
+<p align="center" width="400" height="300">
  <img src="https://i.imgur.com/HROakCa.jpg"></a>
 </p>
-<p align="center" width="400" height="300>
+<p align="center" width="400" height="300">
  <img src="https://i.imgur.com/JtbINuy.jpg"></a>
 </p>
-<p align="center" width="400" height="300>
+<p align="center" width="400" height="300">
  <img src="https://i.imgur.com/hvKAPCi.jpg"></a>
 </p>
-<p align="center" width="400" height="300>
+<p align="center" width="400" height="300">
  <img src="https://i.imgur.com/xcUyMnX.jpg"></a>
 </p>
-<p align="center" width="400" height="300>
+<p align="center" width="400" height="300">
  <img src="https://i.imgur.com/A2ppD0v.jpg"></a>
 </p>
-<p align="center" width="400" height="300>
+<p align="center" width="400" height="300">
  <img src="https://i.imgur.com/NNazajL.jpg"></a>
 </p>
-<p align="center" width="400" height="300>
+<p align="center" width="400" height="300">
  <img src="https://i.imgur.com/qlOLDji.jpg"></a>   
  </p>
 ## 欢迎star、fork!!!
