@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/loginer/loginer",
+    "pages/punch/punch",
+    "pages/mine/mine",
+    "pages/advise/advise",
+    "pages/about/about",
+    "pages/more/more",
+    "pages/charts/charts",
+    "pages/rule/rule"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FEFEFE",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "一见打卡",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#FAFAFA",
+    "borderStyle": "white",
+    "color": "#b2b2b2",
+    "selectedColor": "#1e1e1e",
+    "list": [
+      {
+        "pagePath": "pages/punch/punch",
+        "selectedIconPath": "static/images/punch1.png",
+        "iconPath": "static/images/punch.png",
+        "text": "一见打卡"
+      },
+      {
+        "pagePath": "pages/charts/charts",
+        "selectedIconPath": "static/images/school1.png",
+        "iconPath": "static/images/school.png",
+        "text": "积分榜"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "selectedIconPath": "static/images/mine1.png",
+        "iconPath": "static/images/mine.png",
+        "text": "我"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,22 @@
+<view class="title">积分榜</view>
+<view class="item-box">
+  <view class="items">
+    <view wx:for="{{list}}"  wx:key="{{index}}"  class="item">
+     
+      <view data-index="{{index}}" class="inner txt">
+      <i>{{item.rank}}</i>
+      <image class="item-icon" mode="widthFix" src="{{item.userPic}}"></image>
+       <i> {{item.nickname}}</i>
+      <span class="item-data">
+    
+       <i class="rankpace"> 积分:{{item.score}}</i>
+        <!-- <span class="rankxin">{{item.xin}}</span> -->
+      </span>
+      
+      </view>
+     
+    </view>
+  </view>
+</view><!--pages/ranking/ranking.wxml-->
+
+<navigator url="../rule/rule">查看规则</navigator>

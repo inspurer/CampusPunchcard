@@ -1,0 +1,90 @@
+page {
+  background: #fff;
+  padding: 0 0rpx 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-size: cover;
+  background-image: url(http://bmob-cdn-21956.b0.upaiyun.com/2018/11/08/e16028434063466d80d9d79f281ce145.jpg);
+}
+/* pages/leftSwiperDel/index.wxss */
+view{
+    box-sizing: border-box;
+}
+.item-box{
+    width: 700rpx;
+    height: 10rpx;
+    margin: 0 auto;
+    padding:40rpx 0;
+}
+.title{
+  margin-top: 12px;
+  font-size: 20px;
+  height: 12px;
+  text-align: center;  
+}
+.items{
+    width: 100%;
+}
+.item{
+    position: relative;
+    border-top: 2rpx solid #eee;
+    height: 120rpx;
+    line-height: 120rpx;
+    overflow: hidden;
+     
+}
+ 
+ 
+.item:last-child{
+    border-bottom: 2rpx solid #eee;
+}
+.inner{
+    position: absolute;
+    top:0;
+}
+.inner.txt{
+    background-color: #fff;
+    width: 100%;
+    z-index: 5;
+    padding:0 10rpx;
+    transition: left 0.2s ease-in-out;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.item-icon{
+    width: 64rpx;
+    height: 64rpx;
+    vertical-align: middle;
+    margin-right: 16rpx;
+    margin-left:13px;
+    border-radius:50%;
+ 
+}
+ 
+.item-data{
+  float: right;
+  margin-right:5%;}
+ 
+.rankpace{
+  color: #87CEFA;
+}
+.circle{
+    right: 35px;
+    bottom: 35px;         
+    width: 110px;
+    background-color: #87CEFA;
+    height: 110px;
+    padding-top: 28px;
+    color: white;
+    background-size: cover;
+    position: fixed;
+    z-index: 9999;
+    font-size: 20px;
+    text-align: center;
+    border: 0 solid #ffffff;
+    border-radius: 500px;
+    box-shadow: 4px 1px 1px #cccccc;
+}

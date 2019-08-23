@@ -1,0 +1,7 @@
+ <view class ="place"></view>
+  <view class="operations">
+
+    <navigator url="../advise/advise">建议 </navigator>
+
+    <navigator url="../about/about">关于</navigator>
+  </view>

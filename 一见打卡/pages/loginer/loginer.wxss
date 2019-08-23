@@ -1,0 +1,32 @@
+/* pages/loginer/loginer.wxss */
+page{
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+.info{
+  color: red;
+}
+text{
+  color:#87CEFA;
+  font-size: 20px;
+}
+button{
+  margin: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  color: white;
+  background-color:  #87CEFA;
+  right: 0;
+  text-align: center;       
+  width: 40%;
+  height: 50px;      
+  border-radius: 20px;    
+}
+.back_img{
+  height: 100%;
+  background-size: cover;
+  width: 100%;
+  background-image: url(http://bmob-cdn-21805.b0.upaiyun.com/2018/10/13/12cf79f940ac57cc80f51c2e001dc3f0.jpg);
+}

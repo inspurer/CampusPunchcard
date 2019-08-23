@@ -1,0 +1,7 @@
+<view class="topBox">
+  <image src="../../static/images/tao.png" mode="aspectFill"></image>
+  <text>微信公众号:inspurer</text>
+</view>
+  <view class="softHtp">
+    supported by inspurer
+  </view>

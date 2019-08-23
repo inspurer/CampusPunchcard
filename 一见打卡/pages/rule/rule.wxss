@@ -1,0 +1,19 @@
+/* pages/rule/rule.wxss */
+text{ 
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+  text-align: center; /*设置文本水平居中*/
+  }
+
+image{
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+    width: 320px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

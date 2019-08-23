@@ -1,0 +1,3 @@
+<!--pages/rule/rule.wxml-->
+<text>注意:除上面表格所说的以外，邀请人注册成功也可+2分！</text>
+<image src='../../static/images/rule.jpg'></image>

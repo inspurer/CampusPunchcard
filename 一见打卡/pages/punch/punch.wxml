@@ -1,0 +1,22 @@
+<view class="title">今日打卡榜</view>
+<view class="item-box">
+  <view class="items">
+    <view wx:for="{{list}}"  wx:key="{{index}}"  class="item">
+     
+      <view data-index="{{index}}" class="inner txt">
+      <i>{{item.rank}}</i>
+      <image class="item-icon" mode="widthFix" src="{{item.avatar}}"></image>
+       <i> {{item.nickname}}</i>
+      <span class="item-data">
+    
+       <i class="rankpace"> 打卡时间:{{item.time}}</i>
+        <!-- <span class="rankxin">{{item.xin}}</span> -->
+      </span>
+      
+      </view>
+     
+    </view>
+  </view>
+</view><!--pages/ranking/ranking.wxml-->
+
+<button  class="circle" bindtap="btn_click">开始打卡</button>
